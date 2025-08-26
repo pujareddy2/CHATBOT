@@ -1,13 +1,19 @@
+import nest_asyncio
+nest_asyncio.apply()
+import os
+from pages import ingest_page, chatbot_page
 import streamlit as st
+from dotenv import load_dotenv
 
-st.set_page_config(page_title="chatbot", layout="wide")
+load_dotenv()
 
-ingest_page = st.Page("pages/ingest_page.py", title="Ingest")
-chatbot_page = st.Page("pages/chatbot_page.py", title="Chatbot")
+st.set_page_config(page_title="RAG Chatbot", layout="wide")
+st.title("RAG Chatbot System")
 
-pg = st.navigation([
-    ingest_page,
-    chatbot_page
-])
+menu = ["Ingest Document", "Chatbot"]
+choice = st.sidebar.selectbox("Select Option", menu)
 
-pg.run()
+if choice == "Ingest Document":
+    ingest_page.run()
+elif choice == "Chatbot":
+    chatbot_page.run()
