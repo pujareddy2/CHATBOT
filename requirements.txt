@@ -1,5 +1,12 @@
 streamlit
+langchain
+langchain-community
+langchain-chroma
+langchain-google-genai
+chromadb
+pypdf
+python-dotenv
 openai
 tiktoken
-chromadb
-markitdown[all]
+nest_asyncio
+langchain-text-splitters
